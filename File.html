@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultra Name Designer</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#090909,#1b0033,#220044,#000);
+min-height:100vh;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.box{
+width:100%;
+max-width:850px;
+background:rgba(255,255,255,0.06);
+border-radius:30px;
+padding:30px;
+backdrop-filter:blur(15px);
+box-shadow:0 0 40px rgba(0,0,0,.5);
+}
+
+h1{
+color:#fff;
+text-align:center;
+font-size:42px;
+margin-bottom:20px;
+text-shadow:0 0 15px #ff00ff;
+}
+
+input{
+width:100%;
+padding:18px;
+border:none;
+outline:none;
+border-radius:18px;
+font-size:23px;
+margin-bottom:25px;
+}
+
+.result{
+background:rgba(255,255,255,0.08);
+padding:18px;
+margin:10px 0;
+border-radius:18px;
+color:#fff;
+font-size:28px;
+text-align:center;
+cursor:pointer;
+transition:.3s;
+overflow:auto;
+white-space:nowrap;
+}
+
+.result:hover{
+transform:scale(1.03);
+background:#7b00ff;
+box-shadow:0 0 20px #b700ff;
+}
+
+.note{
+text-align:center;
+color:#00ffd5;
+margin-top:15px;
+font-size:18px;
+}
+
+.tg{
+text-align:center;
+margin-top:25px;
+font-size:24px;
+color:#fff;
+}
+
+.tg span{
+color:#00ffd5;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1>🔥 Ultra Name Designer 🔥</h1>
+
+<input type="text" id="name" placeholder="ناوت بنووسە...">
+
+<div id="results"></div>
+
+<div class="note">کلیک لەسەر هەر دیزاینێک بکە بۆ کۆپی</div>
+
+<div class="tg">Telegram: <span>@wajidzeroo00</span></div>
+</div>
+
+<script>
+let input=document.getElementById("name");
+let results=document.getElementById("results");
+
+function spaceText(t){
+return t.split("").join(" ");
+}
+
+function verticalText(t){
+return t.split("").join("<br>");
+}
+
+function tinyText(t){
+return t.toLowerCase();
+}
+
+function bigText(t){
+return t.toUpperCase();
+}
+
+input.oninput=function(){
+
+let t=input.value;
+
+let styles=[
+
+t,
+"★ "+t+" ★",
+"✦ "+t+" ✦",
+"『"+t+"』",
+"꧁"+t+"꧂",
+"♛ "+t+" ♛",
+"⚡"+t+"⚡",
+"༺"+t+"༻",
+"☾ "+t+" ☽",
+"🖤 "+t+" 🖤",
+"◥"+t+"◤",
+"❖ "+t+" ❖",
+"♚ "+t+" ♚",
+
+spaceText(t),
+bigText(t),
+tinyText(t),
+
+"↜ "+t+" ↝",
+"⫷ "+t+" ⫸",
+"░"+t+"░",
+"▓"+t+"▓",
+"█"+t+"█",
+"◈ "+t+" ◈",
+"✪ "+t+" ✪",
+"✯ "+t+" ✯",
+"➳ "+t+" ➳",
+"➶ "+t+" ➶",
+
+"❤ "+t+" ❤",
+"💎 "+t+" 💎",
+"👑 "+t+" 👑",
+"🔥 "+t+" 🔥",
+"🌙 "+t+" 🌙",
+
+t+"ツ",
+t+"么",
+t+"メ",
+t+"シ",
+t+"々",
+
+"༒"+t+"༒",
+"♤"+t+"♤",
+"♧"+t+"♧",
+"☠"+t+"☠",
+
+"◄◄ "+t+" ►►",
+"<<< "+t+" >>>",
+"» "+t+" «",
+
+"✿ "+t+" ✿",
+"❀ "+t+" ❀",
+"✾ "+t+" ✾",
+
+"【"+t+"】",
+"《"+t+"》",
+"〈"+t+"〉"
+
+];
+
+results.innerHTML="";
+
+styles.forEach(function(s){
+
+let div=document.createElement("div");
+div.className="result";
+div.innerHTML=s;
+
+div.onclick=function(){
+navigator.clipboard.writeText(div.innerText);
+div.innerText="✔ Copied";
+setTimeout(()=>{
+div.innerHTML=s;
+},900);
+}
+
+results.appendChild(div);
+
+});
+
+}
+</script>
+
+</body>
+</html>
